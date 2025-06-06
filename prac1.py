@@ -170,3 +170,13 @@ except Exception as e:
         print("Error: File not found -",file_path)
 read_file_contents("/Users/Example/Documents/my_file.txt")"""
 # -----------------------------------------------------------------------------------
+"""def bubble_sort(scores):
+    if len(scores)<2:
+        return scores
+    while True:
+        pivot = scores[0]
+        lower = [i for i in scores if i<=pivot]
+        high = [i for i in scores if i>pivot]
+        return lower + [pivot] +high
+
+    return -1"""
