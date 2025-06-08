@@ -203,3 +203,40 @@ gender_counts = df['gender'].value_counts()
 print(average_income)
 print(gender_counts)"""
 # -------------------------------------------------------------------------------------
+"""import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(0, 3*np.pi, 500)
+plt.plot(x, np.sin(x**2))
+plt.title('A simple sine wave')
+plt.show()"""
+# -------------------------------------------------------------------------------------
+
+# Boolean indexing with pandas
+"""df[(df['membership_level'] == 'Platinum') & (df['number_of_purchases'] > 10)]"""
+# -------------------------------------------------------------------------------------
+"""customer_info = df.loc[df['Name'] == 'John Doe', ['Email', 'Phone']]"""
+# -------------------------------------------------------------------------------------
+
+
+import pandas as pd
+import random
+import string
+
+# Set a seed for reproducibility
+random.seed(42)
+
+# Generate sample data
+"""data = {
+    "ID": [i for i in range(1, 51)],
+    "Name": [''.join(random.choices(string.ascii_uppercase, k=5)) for _ in range(50)],
+    "Age": [random.randint(18, 65) for _ in range(50)],
+    "Department": [random.choice(['HR', 'Finance', 'IT', 'Marketing', 'Sales']) for _ in range(50)],
+    "Salary": [round(random.uniform(30000, 100000), 2) for _ in range(50)]
+}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Save the DataFrame to a CSV file
+df.to_csv("sample_data.csv", index=False)"""
+# --------------------------------------------------------------------------------------
