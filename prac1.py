@@ -218,7 +218,7 @@ plt.show()"""
 # -------------------------------------------------------------------------------------
 
 
-import pandas as pd
+"""import panda as pd
 import random
 import string
 
@@ -226,7 +226,7 @@ import string
 random.seed(42)
 
 # Generate sample data
-"""data = {
+data = {
     "ID": [i for i in range(1, 51)],
     "Name": [''.join(random.choices(string.ascii_uppercase, k=5)) for _ in range(50)],
     "Age": [random.randint(18, 65) for _ in range(50)],
@@ -240,3 +240,10 @@ df = pd.DataFrame(data)
 # Save the DataFrame to a CSV file
 df.to_csv("sample_data.csv", index=False)"""
 # --------------------------------------------------------------------------------------
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots(2, 2)
+ax[0, 1].plot([1, 2, 3], [4, 5, 6])
+ax[1, 1].bar(["A", "B", "C"], [7, 8, 9])
+ax[0, 0].scatter([1, 2, 3], [4, 5, 6])
+ax[1, 0].hist([1, 2, 1, 4, 5, 4, 7, 5, 7])
+plt.show()
