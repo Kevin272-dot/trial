@@ -98,7 +98,7 @@ print(f"Index of {target}: {check(data, target)}")"""
 
 
 """import bisect
-dat = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15,]
+dat = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15]
 bisect.insort(dat, 16)
 print(dat)"""
 # -----------------------------------------------------------------------------------
@@ -240,10 +240,10 @@ df = pd.DataFrame(data)
 # Save the DataFrame to a CSV file
 df.to_csv("sample_data.csv", index=False)"""
 # --------------------------------------------------------------------------------------
-import matplotlib.pyplot as plt
+"""import matplotlib.pyplot as plt
 fig, ax = plt.subplots(2, 2)
 ax[0, 1].plot([1, 2, 3], [4, 5, 6])
 ax[1, 1].bar(["A", "B", "C"], [7, 8, 9])
 ax[0, 0].scatter([1, 2, 3], [4, 5, 6])
 ax[1, 0].hist([1, 2, 1, 4, 5, 4, 7, 5, 7])
-plt.show()
+plt.show()"""
