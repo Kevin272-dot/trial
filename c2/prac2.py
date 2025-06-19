@@ -14,11 +14,11 @@ if len(sys.argv) > 1:
 else:
     print("Hello there!")"""
 # ----------------------------------------------------------------------------------------
-import re
-import argparse
-from re import match
 import pandas as pd
 import glob
+from re import match
+import argparse
+import re
 
 
 """def analyze_data(input_file, output_file):
@@ -83,3 +83,14 @@ df['date'] = df['date'].fillna(pd.to_datetime(df['date'], format='%Y-%m-%d'))
 # Standardize categorical values
 df['category'] = df['category'].str.lower()
 print(df)"""
+# ------------------------------------------------------------------------------------
+"""import re
+
+text = "Please contact me at john.doe@example.com or jane.doe@company.org for more information."
+
+email_pattern = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b"
+
+email_matches = re.findall(email_pattern, text)
+
+print(email_matches)"""
+# -----------------------------------------------------------------------------------

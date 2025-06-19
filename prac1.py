@@ -247,3 +247,34 @@ ax[1, 1].bar(["A", "B", "C"], [7, 8, 9])
 ax[0, 0].scatter([1, 2, 3], [4, 5, 6])
 ax[1, 0].hist([1, 2, 1, 4, 5, 4, 7, 5, 7])
 plt.show()"""
+
+from bs4 import BeautifulSoup
+html_content = """
+<div class="product">
+  <h1>Awesome Headphones</h1>
+  <p class="price">$99.99</p>
+  <p class="description">These headphones offer amazing sound quality!</p>
+</div>
+"""
+
+soup = BeautifulSoup(html_content, 'html.parser')
+h = soup.find('h1')
+product_name = h.get_text()
+p1 = soup.find('p', class_="price")
+p2 = soup.find('p', class_="description")
+price = p1.get_text()
+description = p2.get_text()
+
+# Use soup.find() to locate the <h1> tag and store the extracted text in a variable called 'product_name'.
+### YOUR CODE HERE ###
+
+# Use soup.find() to locate <p> tags with class_='price' and store the extracted text in a variable called 'price'.
+### YOUR CODE HERE ###
+
+# Use soup.find() to locate <p> tags with class_='description' and store the extracted text in a variable called 'description'.
+### YOUR CODE HERE ###
+
+# Print the extracted data in the format:
+print(f"Product name: {product_name}")
+print(f"Price: {price}")
+print(f"Description: {description}")
