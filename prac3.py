@@ -37,7 +37,7 @@ lin = main.select_one("a")
 hyperlink = lin['href']
 print(hyperlink)"""
 # -----------------------------------------------------------------------------------
-from bs4 import BeautifulSoup
+"""from bs4 import BeautifulSoup
 import requests
 url = "https://scikit-learn.org/stable/"
 try:
@@ -52,5 +52,17 @@ ch = soup.find_all('div')
 l = []
 for i in ch:
     l.append(i.get_text())
-print(l)
+print(l)"""
 # ------------------------------------------------------------------------------------
+
+
+import scrapy
+class MySpider(scrapy.Spider):
+    name = "my_spider"
+    start_urls = ["https://www.yahoo.com/"]
+
+    def parse(self, response):
+        title = response.css('title::text').get()
+        paragraphs = response.css('p::text').getall()
+        print("Title:", title)
+        print("paragraphs:", paragraphs)
