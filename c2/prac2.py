@@ -14,11 +14,11 @@ if len(sys.argv) > 1:
 else:
     print("Hello there!")"""
 # ----------------------------------------------------------------------------------------
+import re
+import argparse
+from re import match
 import pandas as pd
 import glob
-from re import match
-import argparse
-import re
 
 
 """def analyze_data(input_file, output_file):
