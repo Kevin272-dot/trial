@@ -1,0 +1,375 @@
+from plyer import notification
+import time
+import schedule
+import imaplib
+from email.mime.text import MIMEText
+import requests
+import pandas as pd
+import json
+import smtplib
+from bs4 import BeautifulSoup
+import datetime
+import email
+"""from bs4 import BeautifulSoup
+html_content = #add 3 quotes for html when you execute
+<html>
+<body>
+    <h1>This is a sample heading</h1>
+    <p>This is a sample paragraph</p>
+    <p class = "special">This is a sample paragraph</p>
+</body>
+</html>
+soup = BeautifulSoup(html_content, 'html.parser')
+find_one = soup.find('p')
+print(find_one)
+all = soup.find_all('p')
+for i in all:
+    print(i)
+withclass = soup.find('p', class_="special")
+print(withclass)
+print(withclass.get_text())"""
+# --------------------------------------------------------------------------------------
+"""from bs4 import BeautifulSoup
+html_content =
+<html>
+<body>
+    <div id = "main-content">
+        <h1>This is a heading</h1>
+        <p class = "important">This is a important paragraph</p>
+        <a href="https://www.example.com">visit example</a>
+    </div>
+</body>
+</html>
+soup = BeautifulSoup(html_content, "html.parser")
+main = soup.select_one('#main-content')
+imp = main.select_one('.important')
+no_tags = imp.get_text()
+print(no_tags)
+lin = main.select_one("a")
+hyperlink = lin['href']
+print(hyperlink)"""
+# -----------------------------------------------------------------------------------
+"""from bs4 import BeautifulSoup
+import requests
+url = "https://scikit-learn.org/stable/"
+try:
+    response = requests.get(url)
+    response.raise_for_status()  # checks for https errors
+except Exception as e:
+    print(f"Unable to fetch data {e}")
+else:
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+ch = soup.find_all('div')
+l = []
+for i in ch:
+    l.append(i.get_text())
+print(l)"""
+# ------------------------------------------------------------------------------------
+
+
+"""from bs4 import BeautifulSoup
+import pandas as pd
+import requests
+
+url = "http://127.0.0.1:5500/baseball_stats.html"
+
+try:
+
+    response = requests.get(url)
+
+    response.raise_for_status()
+
+except Exception as e:
+
+    print(f"Error fetching the webpage: {e}")
+
+else:
+
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    print(soup.prettify())
+
+    table = soup.find("table")
+
+    table_head = table.find("thead")
+
+    header_row = table_head.find("tr")
+
+    headers = [th.text.strip() for th in header_row.find_all("th")]
+
+    table_body = table.find("tbody")
+
+    data_rows = table_body.find_all("tr")
+
+    structured_data = {header: [] for header in headers}
+
+    for row in data_rows:
+
+        extracted_row = []
+
+        cells = row.find_all("td")
+
+        for cell in cells:
+
+            cell_value = cell.text.strip()
+
+            try:
+
+                if "." in cell_value:
+
+                    extracted_value = float(cell_value)
+
+                else:
+
+                    extracted_value = int(cell_value)
+
+            except ValueError:
+
+                extracted_value = cell_value
+
+            finally:
+
+                extracted_row.append(extracted_value)
+
+        header_value_pairs = zip(headers, extracted_row)
+
+        for header, value in header_value_pairs:
+
+            structured_data[header].append(value)
+
+    # Convert to DataFrame
+
+    df = pd.DataFrame(structured_data)
+
+    # Inspect the DataFrame
+
+    print(df.info())
+
+    print(df.columns)
+
+    print(df.shape)
+
+    print(df.dtypes)
+
+    # Print first 10 rows
+
+    print(df.head(10))
+
+    # Save to CSV
+
+    df.to_csv("sports_statistics.csv", index=False)"""
+# ---------------------------------------------------------------------------------
+"""import json
+data = {"Name": "Alice", "Age": 30}
+j_st = json.dumps(data)
+print(j_st)"""
+# ---------------------------------------------------------------------------------
+"""url = 'https://api.weatherapi.com/v1/current.json'
+api_key = "YOUR_API_KEY"
+params = {'key': api_key, 'q': 'London'}
+try:
+
+    response = requests.get(url, params=params)
+    response.raise_for_status()
+except Exception as e:
+    print(f"Unable to acess, {e}")
+else:
+    data = response.json()
+    print("data")"""
+# ---------------------------------------------------------------------------------------------------
+"""smtp_server = "smtp.gmail.com"
+smtp_port = 587
+sender_email = "lrkevindaniel@gmail.com"
+sender_password = ""
+
+receiver_email = "lrlauracynthia@gmail.com"
+message = """f"""\
+Subject: Hello from Python
+
+This is a test email sent from Python."""
+
+"""try:
+    server = smtplib.SMTP(smtp_server, smtp_port)
+    server.starttls() # Secure the connection
+    server.login(sender_email, sender_password)
+    server.sendmail(sender_email, receiver_email, message)
+    print("Email sent successfully!")
+except Exception as e:
+    print(f"Error sending email: {e}")
+finally:
+    server.quit()"""
+# ---------------------------------------------------------------------------------
+"""from email.mime.text import MIMEText
+
+# 1. Create the MIMEText object with the email body
+message = MIMEText("This is the email body.")
+
+# 2. Set the email headers like a dictionary
+# The 'Subject' header defines the email's subject line.
+message['Subject'] = "Your Custom Subject Here"
+
+# The 'From' header specifies the sender's email address.
+message['From'] = "sender@example.com"
+
+# The 'To' header specifies the recipient's email address.
+message['To'] = "recipient@example.com"
+
+# Once configured, this 'message' object can be sent using server.send_message(message)
+# from your smtplib.SMTP connection."""
+# --------------------------------------------------------------------------------
+"""email_provider = "imap.gmail.com"
+port = 993
+email_id = "lrkevindaniel@gmail.com"
+password = "jmfe crkv xcbe rtvn"
+today = datetime.date.today().strftime('%d-%b-%Y')
+try:
+    mail = imaplib.IMAP4_SSL(email_provider, port)
+    mail.login(email_id, password)
+    mail.select("Inbox")
+    status, meassages = mail.search(None, 'SINCE', today)
+    if status == "OK":
+        for num in meassages[0].split():
+            status, data = mail.fetch(num, '(RFC822)')
+            if status == "OK":
+                print("Email is fetched")
+                data_raw = data[0][1]
+                msg = email.message_from_bytes(data_raw)
+                subject = msg['subject']
+                from_ = msg['from']
+                date = msg['date']
+
+                for part in msg.walk():
+                    if part.get_content_type() == "text/plain":
+                        body = part.get_payload(decode=True).decode()
+                        print(body)
+                        break  # Stop after finding the first plain text part
+
+    else:
+        print("Error searching for unread emails")
+except Exception as e:
+    print(f"Error while fetching mail: {e}")
+finally:
+    mail.close()
+    mail.logout()"""
+
+
+# -------------------------------------------------------------------------------
+
+# Setup for email connection
+"""smtp_server = "smtp.example.com"
+smtp_port = 587
+imap_server = "imap.example.com"
+imap_port = 993
+email_user = "orders@example.com"
+email_password = "Coursera1000!"
+
+
+def send_confirmation_email(client_email, client_name):
+    message = MIMEText(f"Thank you for your order, {client_name}!")
+    message['Subject'] = "Order Confirmation"
+    message['From'] = email_user
+    message['To'] = client_email
+
+    try:
+        with smtplib.SMTP(smtp_server, smtp_port) as server:
+            server.starttls()
+            server.login(email_user, email_password)
+            server.send_message(message)
+        print(f"Sent confirmation email to {client_name}!")
+    except Exception as e:
+        print(f"Failed to send email: {e}")
+
+
+def check_new_messages(client_email, client_name):
+    try:
+        with imaplib.IMAP4_SSL(imap_server, imap_port) as mail:
+            mail.login(email_user, email_password)
+            mail.select('inbox')
+
+            # Search for unread messages from the client
+            status, responses = mail.search(
+                None, f'(UNSEEN FROM "{client_email}")')
+            if status == "OK":
+                msg_ids = responses[0].split()
+                if msg_ids:
+                    print(f"New message from {client_name}!")
+                else:
+                    print("No new messages yet.")
+            else:
+                print("Failed to search inbox.")
+
+            mail.logout()
+    except Exception as e:
+        print(f"Error checking messages: {e}")
+
+
+# Example usage
+client_email = "john.smith@example.com"
+client_name = "John Smith"
+send_confirmation_email(client_email, client_name)
+check_new_messages(client_email, client_name)"""
+# --------------------------------------------------------------------------------
+
+
+"""def hello():
+    print("Hello , it's time for your scheduled task!")
+
+
+schedule.every().day.at("16:17").do(hello)
+for sch in schedule.get_jobs():
+    print(f"Scheduled job: {sch}", flush=True)
+
+
+def run_scheduler():
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+
+
+run_scheduler()"""
+# --------------------------------------------------------------------------------
+# Get your API key from https://www.football-data.org/ and replace 'YOUR_API_KEY_HERE'
+"""api_key = 'YOUR_API_KEY_HERE'
+headers = {'X-Auth-Token': api_key}
+url = "http://api.football-data.org/v4/matches"
+
+
+def fetch_scores():
+    response = requests.get(url, headers=headers)
+    try:
+        data = response.json()
+# Check if the 'matches' key exists in the response
+        if 'matches' in data and len(data['matches']) > 0:
+            match = data['matches'][0]
+            score_line = f"{match['score']['fullTime']['homeTeam']} - {match['score']['fullTime']['awayTeam']}"
+            team_home = match['homeTeam']['name']
+            team_away = match['awayTeam']['name']
+            return f"{team_home} {score_line} {team_away}"
+        else:
+            return "No matches currently available."
+    except Exception as e:
+        return f"Error fetching data: {e}"
+
+
+fetch_scores()
+# Schedule notifications every day at 08:00
+
+
+def send_notification():
+    match_score = fetch_scores()
+    notification.notify(
+        title='Live Sports Score Update',
+        message=match_score,
+        app_icon=None,  # Path to an app icon
+        timeout=1,  # Duration in seconds
+    )
+
+
+schedule.every().day.at("17:30").do(send_notification)
+
+# Test sending a notification
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)"""
