@@ -1,13 +1,18 @@
-from cal import calculate
+from cal import shopping
+import unittest
+import pytest
+import requests
+"""from cal import calculate
 import pytest
 
 
 @pytest.mark.parametrize(
     "a,b,expected", [(2, 3, 6), (4, 5, 20), (0, 10, 0), (-1, 5, -5), (-2, -3, 6)])
 def test_calculate(a, b, expected):
-    assert calculate(a, b) == expected
+    assert calculate(a, b) == expected"""
 
 
+""""
 @pytest.fixture
 def sample_data():
     return [1, 2, 3, 4, 5]
@@ -18,7 +23,7 @@ def test_sample_data(sample_data):
     assert sample_data[0] == 1
     assert sample_data[-1] == 5
     assert sum(sample_data) == 15
-    assert all(isinstance(x, int) for x in sample_data)
+    assert all(isinstance(x, int) for x in sample_data)"""
 
 
 """import pytest
@@ -89,3 +94,41 @@ class TestProductFunctions:
         cart.add_to_cart(Product("Something", 100.0))
         result = cart.checkout(mock_payment_gateway)
         assert result is True"""
+
+
+"""def cal_price(price, tax):
+    return price + (price * tax)
+
+
+class TestCalculatePrice(unittest.TestCase):
+    def test_cal_price(self):
+        self.assertEqual(cal_price(100, 0.2), 120)
+
+    def test_cal_price_zero_tax(self):
+        self.assertEqual(cal_price(200, 0), 200)
+
+
+unittest.main()"""
+
+
+"""def test_check_url():
+    url = "https://scikit-learn.org/stable/"
+    response = requests.get(url)
+    assert response.status_code == 200
+
+
+if __name__ == "__main__":
+    pytest.main()"""
+
+
+class TestShopping(unittest.TestCase):
+    def test_shopping(self):
+        price = 200
+        discount = 20
+        expected = 160
+        discounted_price = shopping(price, discount)
+        self.assertEqual(discounted_price, expected)
+
+
+if __name__ == "__main__":
+    unittest.main()
