@@ -132,3 +132,16 @@ class TestShopping(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_url():
+    url = "https://scikit-learn.org/stable/"
+    try:
+        response = requests.get(url)
+        assert response.status_code == 200
+    except:
+        pytest.fail(f"Failed to reach {url}")
+
+
+if __name__ == "__main__":
+    pytest.main()

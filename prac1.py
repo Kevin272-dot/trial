@@ -177,7 +177,7 @@ read_file_contents("/Users/Example/Documents/my_file.txt")"""
         pivot = scores[0]
         lower = [i for i in scores if i<=pivot]
         high = [i for i in scores if i>pivot]
-        return lower + [pivot] +high
+        return bubble_sort(lower) + [pivot] + bubble_sort(high)
 
     return -1"""
 # -------------------------------------------------------------------------------------
