@@ -161,6 +161,111 @@ print(df)"""
 """df = pd.read_csv("sample_data.csv")
 df["Salary"].fillna(df.loc[df["Department"] == "HR", "Salary"]).mean()"""
 # 7.5
-df = pd.read_csv("sample_data.csv")
+"""df = pd.read_csv("sample_data.csv")
 print(df.agg({"Salary": ['mean', 'max',  'min'],
-              "Age": ['mean', 'max',  'min']}))
+              "Age": ['mean', 'max',  'min']}))"""
+# 8.1 pandas
+"""df = pd.read_csv("sample_data.csv")
+df["Salary"].fillna(df.query('Department == "HR"')["Salary"].mean(),inplace = True)"""
+
+# 8.2 matplotlib and pandas
+"""df = pd.read_csv("sample_data.csv")
+df.groupby("Department")["Salary"].sum().plot(kind="bar")
+dff = df["Department"]
+plt.legend()
+plt.show()"""
+# 8.3 beautifilsoup
+"""url = "https://scikit-learn.org/stable"
+links = []
+try:
+    response = requests.get(url)
+    response.raise_for_status()
+except Exception as e:
+    print(f"error in fetching data {e}")
+else:
+    soup = BeautifulSoup(response.content, "html.parser")
+    ch = soup.find_all("img")
+    for i in ch:
+        lin = i.get("src")
+        if lin:
+            absolute_img_url = requests.compat.urljoin(url, lin)
+            links.append(absolute_img_url)
+finally:
+    print(links)"""
+# 9 Decorater
+
+"""
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        execution_time = end_time - start_time
+        print(
+            f"Function {func.__name__} Exceution time {execution_time: .5f} seconds")
+        return result
+
+    return wrapper
+
+
+@timer
+def calculate_area(length, breadth):
+    time.sleep(1)
+    area = length*breadth
+    return area
+
+
+length = 7
+breadth = 5
+print(calculate_area(length, breadth))"""
+# 10
+"""x = np.random.randn(10)
+y1 = np.random.randn(10)
+y2 = np.random.randn(10)
+plt.plot(x, y1)
+plt.plot(x, y2)
+plt.legend(["first", "second"])
+plt.show()
+"""
+# 11
+"""x = [2, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 8, 5, 4]
+y = [5, 7, 8, 9, 4, 4, 3, 3, 5, 6, 6, 6, 9, 8]
+plt.hist2d(x, y, edgecolor="black")
+plt.title("Simple Histogram")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.show()
+plt.legend()"""
+# 12.1
+
+
+"""def fib():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a+b
+
+
+finbannoci = fib()
+n = int(input("enter a number:"))
+for i in range(n):
+    print(i)"""
+# 13
+smtp_mail = "smtp.gmail.com"
+smtp_port = 587
+smtp_sender = "lrkevindaniel@gmail.com"
+smtp_password = "jmfe crkv xcbe rtvn"
+smtp_reciver = "lrlauracynthis@gmail.com"
+message = MIMEText("Hi Laura")
+message["Subject"] = "This is a text email from python"
+message["From"] = smtp_sender
+message["To"] = smtp_reciver
+
+try:
+    sender = smtplib.SMTP(smtp_mail, smtp_port)
+    sender.starttls()
+except Exception as e:
+    print(f"Error in starting TLS: {e}")
+else:
+    sender.login(smtp_sender, smtp_password)
+    sender.send_message(message)
