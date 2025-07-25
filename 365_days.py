@@ -251,6 +251,7 @@ n = int(input("enter a number:"))
 for i in range(n):
     print(i)"""
 # 13
+"""
 smtp_mail = "smtp.gmail.com"
 smtp_port = 587
 smtp_sender = "lrkevindaniel@gmail.com"
@@ -269,3 +270,10 @@ except Exception as e:
 else:
     sender.login(smtp_sender, smtp_password)
     sender.send_message(message)
+"""
+
+# Example of a simple progress indicator
+for i in range(11):
+    print(f"Progress: {i*10}% \r", end="")
+    time.sleep(0.5)
+print("\nTask complete!")  # Print a newline at the end
