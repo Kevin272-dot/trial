@@ -1,3 +1,4 @@
+from collections import deque
 """def calculate_diameter_circle(radius: float) -> float:
 
     diameter = radius*2
@@ -250,6 +251,7 @@ plt.show()"""
 
 """from bs4 import BeautifulSoup
 html_content = """"""
+from collections import deque
 <div class="product">
   <h1>Awesome Headphones</h1>
   <p class="price">$99.99</p>
@@ -310,4 +312,33 @@ for img_url in image_urls:
         print(f"Downloaded: {img_name}")
     except requests.exceptions.RequestException as e:
         print(f"Error downloading {img_url}: {e}")"""
-# --------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------
+"""n = int(input("enter the line to be deleted:"))
+try:
+    with open("input1.txt", "r") as f:
+        r = f.readlines()
+except Exception as e:
+    print(f"an error occured {e}")
+else:
+    if 0 < n <= len(r):
+        r.pop(n-1)
+        with open("input1.txt", "w") as f:
+            f.writelines(r)
+        for i in r:
+            print(i, end='')
+    else:
+        print("Invalid line number.")"""
+# -------------------------------------------------------------------------------------
+"""queue = deque()
+for i in range(5):
+    n = int(input("Enter a number:"))
+    queue.append(n)
+for i in queue:
+    print(i, end=' ')
+print("\n")
+for i in range(2):
+    n = queue.popleft()
+    queue.append(n)
+for i in queue:
+    print(i, end=' ')"""
+# -------------------------------------------------------------------------------------
