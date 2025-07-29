@@ -342,3 +342,9 @@ for i in range(2):
 for i in queue:
     print(i, end=' ')"""
 # -------------------------------------------------------------------------------------
+"""n = float(input("enter the money bob has:"))
+c = float(input("enter the price of chocolate:"))
+m = int(input("enter no of wrappers bob has:"))
+chocolates = int(n // c)+m
+print(f"Bob can eat {chocolates} chocolates.")"""
+# -------------------------------------------------------------------------------------

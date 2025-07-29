@@ -205,8 +205,9 @@ def timer(func):
             f"Function {func.__name__} Exceution time {execution_time: .5f} seconds")
         return result
 
-    return wrapper
+    return wrapper"""
 
+"""
 
 @timer
 def calculate_area(length, breadth):
@@ -273,7 +274,34 @@ else:
 """
 
 # Example of a simple progress indicator
-for i in range(11):
+"""for i in range(11):
     print(f"Progress: {i*10}% \r", end="")
     time.sleep(0.5)
-print("\nTask complete!")  # Print a newline at the end
+print("\nTask complete!")"""  # Print a newline at the end
+# 14
+
+
+def check_email_count():
+    server = "imap.gmail.com"
+    port = 993
+    mail_id = "lrkevindaniel@gmail.com"
+    app_password = "jmfe crkv xcbe rtvn"
+    sender_mail = "noreply.cc1@vit.ac.in"
+    count = 0
+    try:
+        mail = imaplib.IMAP4_SSL(server, port)
+        mail.login(mail_id, app_password)
+        mail.select("Inbox")
+    except Exception as e:
+        print(f"Error connecting to IMAP server: {e}")
+    else:
+        status, response = mail.search(None, f'(FROM {sender_mail})')
+        if status == "OK":
+            message_ids = response[0].decode().split()
+            count = len(message_ids)
+            print(f"Number of emails from {sender_mail}: {count}")
+    finally:
+        mail.logout()
+
+
+check_email_count()
