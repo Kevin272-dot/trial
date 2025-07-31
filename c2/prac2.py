@@ -40,12 +40,12 @@ arguments = ['input.txt', 'output.txt']  # Replace with your file paths
 args = parser.parse_args(arguments)
 analyze_data(args.input_file, args.output_file)"""
 # -------------------------------------------------------------------------------------
-u"""ser_input = "999-888-7777"
+user_input = "999-888-7777"
 phone_number = r"^(\d{3})-\d{3}-\d{4}$"
 if re.match(phone_number, user_input):
     print(f"{user_input} follows the correct format")
 else:
-    print(f"{user_input} does not follow the correct format ")"""
+    print(f"{user_input} does not follow the correct format ")
 # -------------------------------------------------------------------------------------
 """def validate_email(email):
     valid = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b"

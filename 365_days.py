@@ -1,3 +1,5 @@
+from collections import Counter
+from socket import timeout
 import matplotlib.pyplot as plt
 import requests
 from bs4 import BeautifulSoup
@@ -281,7 +283,7 @@ print("\nTask complete!")"""  # Print a newline at the end
 # 14
 
 
-def check_email_count():
+"""def check_email_count():
     server = "imap.gmail.com"
     port = 993
     mail_id = "lrkevindaniel@gmail.com"
@@ -304,4 +306,21 @@ def check_email_count():
         mail.logout()
 
 
-check_email_count()
+check_email_count()"""
+
+#15
+def send_notification():
+    text = "never give up even when all seems lost"
+    notification.notify(
+        title="Reminder to code daily",
+        message=text,
+        app_icon="C:\\Users\\lrkev\\Downloads\\code_reminder_icon.ico",
+        timeout=10
+    )
+
+
+schedule.every(1).minutes.do(send_notification)
+if __name__ == "__main__":
+    while True:
+        schedule.run_pending()
+        time.sleep(1)

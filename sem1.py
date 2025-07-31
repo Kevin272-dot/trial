@@ -42,3 +42,16 @@ b = n2.split()
 c = complex(int(a[0])+int(b[0]), int(a[1])+int(b[1]))
 print(f"The sum of the complex numbers is: {c}")"""
 # --------------------------------------------------------------------------------------
+
+
+def cal_sal(basic):
+    sal = basic + (basic * 0.8) + (basic * 0.3) - (basic * 0.12)
+    return sal
+
+
+basic = float(input("Enter the basic salary: "))
+if basic < 0:
+    print("Invalid salary.")
+else:
+    print(f"The calculated salary is: {cal_sal(basic)}")
+ 
