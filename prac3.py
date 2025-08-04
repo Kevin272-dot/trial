@@ -299,9 +299,8 @@ print(calculate_area(3, 5))
 print(calculate_area(3, 5))"""
 # classes
 
+"""def create_user_class(class_name, attributes):
 
-def create_user_class(class_name, attributes):
-    """Dynamically creates a user class with given attributes."""
 
     def __init__(self, **kwargs):
         for attr, value in kwargs.items():
@@ -325,21 +324,83 @@ premium_user = PremiumUser(
     username="Bob", email="bob@example.com", subscription_level="gold")
 
 print(basic_user.username)  # Output: Alice
-print(premium_user.subscription_level)  # Output: gold
-def timer(func):
-    def wrapper(*args,**kwargs):
+print(premium_user.subscription_level)"""
+# decorator-------------------------------------------------------------------------
+
+"""def timer(func):
+    def wrapper(*args, **kwargs):
         start_time = time.time()
-        result = func(*args,**kwargs)
+        result = func(*args, **kwargs)
         end_time = time.time()
         execution_time = end_time - start_time
         print(f"Execution time: {execution_time} seconds")
         return result
     return wrapper
+
+
 @timer
-def sub(crop,yie,m_rate):
+def sub(crop, yie, m_rate):
     time.sleep(1)
     if crop.lower() == "rice":
         p = (yie*m_rate)+100
         return f"the price is {p}"
     return "crop not found"
-print(sub("rice", 1000, 50))  
+
+
+print(sub("rice", 1000, 50))
+"""
+# generator-------------------------------------------------------------------------
+"""def s_c():
+    num = 1
+    while True:
+        yield num**2, num**3
+        num += 1
+
+
+n = int(input("input enter the number of terms: "))
+f = s_c()
+for i in range(n):
+    print(next(f))"""
+# class----------------------------------------------------------------------------
+
+
+class Inventory:
+    def __init__(self):
+        self.inventory = {}
+
+    def add_item(self, item_id, item_name, stock_count, price):
+        if item_id in self.inventory:
+            raise ValueError
+        else:
+            self.inventory[item_id] = {
+                "item_name": item_name, "stock_count": stock_count, "price": price}
+
+    def update_item(self, item_id, new_stock_count, new_price):
+        if item_id in self.inventory:
+            self.inventory[item_id]["stock_count"] = new_stock_count
+            self.inventory[item_id]["price"] = new_price
+        else:
+            print("item is not in inventory")
+
+    def check_item_details(self, item_id):
+        if item_id in self.inventory:
+            item = self.inventory[item_id]
+            return f"Product Name: {item['item_name']}, Stock Count: {item['stock_count']}, Price: {item['price']}"
+
+
+inventory = Inventory()
+inventory.add_item("I001", "Laptop", 100, 500.00)
+inventory.add_item("I002", "Mobile", 110, 450.00)
+inventory.add_item("I003", "Desktop", 120, 500.00)
+inventory.add_item("I004", "Tablet", 90, 550.00)
+print("Item Details:")
+print(inventory.check_item_details("I001"))
+print(inventory.check_item_details("I002"))
+print(inventory.check_item_details("I003"))
+print(inventory.check_item_details("I004"))
+print("\nUpdate the price of item code - 'I001':")
+inventory.update_item("I001", 100, 505.00)
+print(inventory.check_item_details("I001"))
+print("\nUpdate the stock of item code - 'I003':")
+inventory.update_item("I003", 115, 500.00)
+print(inventory.check_item_details("I003"))
