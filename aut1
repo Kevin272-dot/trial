@@ -222,7 +222,7 @@ message['To'] = "recipient@example.com"
 """email_provider = "imap.gmail.com"
 port = 993
 email_id = "lrkevindaniel@gmail.com"
-password = "jmfe crkv xcbe rtvn"
+password = ""
 today = datetime.date.today().strftime('%d-%b-%Y')
 try:
     mail = imaplib.IMAP4_SSL(email_provider, port)

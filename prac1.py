@@ -1,3 +1,6 @@
+import requests
+from bs4 import BeautifulSoup
+import os
 from collections import deque
 """def calculate_diameter_circle(radius: float) -> float:
 
@@ -281,9 +284,6 @@ print(f"Product name: {product_name}")
 print(f"Price: {price}")
 print(f"Description: {description}")"""
 # ---------------------------------------------------------------------------------------
-"""import os
-from bs4 import BeautifulSoup
-import requests
 url = "https://scikit-learn.org/stable/"
 try:
     response = requests.get(url)
@@ -311,7 +311,7 @@ for img_url in image_urls:
             handler.write(img_data)
         print(f"Downloaded: {img_name}")
     except requests.exceptions.RequestException as e:
-        print(f"Error downloading {img_url}: {e}")"""
+        print(f"Error downloading {img_url}: {e}")
 # -------------------------------------------------------------------------------------
 """n = int(input("enter the line to be deleted:"))
 try:

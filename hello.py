@@ -22,10 +22,10 @@ from email.mime.text import MIMEText
 smtp_server = "smtp.gmail.com"
 smtp_port = 587
 sender_email = "lrkevindaniel@gmail.com"
-sender_password = "jmfe crkv xcbe rtvn"
+sender_password = ""
 receiver_email = "lrlauracynthia@gmail.com"
 
-message = MIMEText("Hi Donkey")
+message = MIMEText("Hi")
 message['Subject'] = "Hello from Kevin"
 message["From"] = sender_email
 message["To"] = receiver_email
