@@ -308,7 +308,9 @@ print("\nTask complete!")"""  # Print a newline at the end
 
 check_email_count()"""
 
-#15
+# 15
+
+
 def send_notification():
     text = "never give up even when all seems lost"
     notification.notify(

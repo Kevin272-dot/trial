@@ -13,17 +13,17 @@ if len(sys.argv) > 1:
 else:
     print("Hello there!")"""
 # ----------------------------------------------------------------------------------------
-import re
-import argparse
-from re import match
 import pandas as pd
 import glob
+from re import match
+import argparse
+import re
 
 
-"""def analyze_data(input_file, output_file):
+def analyze_data(input_file, output_file):
     with open(input_file, 'r') as f:
         text = f.read()
-    words = re.findall(r"\b\w+\b", text.lower())  
+    words = re.findall(r"\b\w+\b", text.lower())
     word_counts = {}
     for word in words:
         word_counts[word] = word_counts.get(word, 0) + 1
@@ -38,7 +38,7 @@ parser.add_argument('input_file', help='path to the input file')
 parser.add_argument('output_file', help='path to the output file')
 arguments = ['input.txt', 'output.txt']  # Replace with your file paths
 args = parser.parse_args(arguments)
-analyze_data(args.input_file, args.output_file)"""
+analyze_data(args.input_file, args.output_file)
 # -------------------------------------------------------------------------------------
 user_input = "999-888-7777"
 phone_number = r"^(\d{3})-\d{3}-\d{4}$"
@@ -47,7 +47,9 @@ if re.match(phone_number, user_input):
 else:
     print(f"{user_input} does not follow the correct format ")
 # -------------------------------------------------------------------------------------
-"""def validate_email(email):
+
+
+def validate_email(email):
     valid = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b"
     if re.match(valid, email):
         return True
@@ -66,7 +68,7 @@ for email in emails:
     if validate_email(email):
         print(f"{email} is a valid email.")
     else:
-        print(f"{email} is not a valid email.")"""
+        print(f"{email} is not a valid email.")
 # ------------------------------------------------------------------------------------
 
 # Sample data with inconsistent date formats
@@ -83,7 +85,6 @@ df['date'] = df['date'].fillna(pd.to_datetime(df['date'], format='%Y-%m-%d'))
 df['category'] = df['category'].str.lower()
 print(df)"""
 # ------------------------------------------------------------------------------------
-"""import re
 
 text = "Please contact me at john.doe@example.com or jane.doe@company.org for more information."
 
@@ -91,5 +92,22 @@ email_pattern = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b"
 
 email_matches = re.findall(email_pattern, text)
 
-print(email_matches)"""
+print(email_matches)
 # -----------------------------------------------------------------------------------
+"""para = r"^(?:0[1-9]|[12]\d|3[01])([\/.-])(?:0[1-9]|1[012])\1(?:19|20)\d\d$"
+n = input()
+for i in n.split():
+    if re.match(para, i):
+        print(f"{i} follows the correct format")
+    else:
+        print(f"{i} does not follow the correct format ")"""
+
+"""para = r"(?:0[1-9]|[12]\d|3[01])[\/.-](?:0[1-9]|1[012])[\/.-](?:19|20)\d\d"
+n = input("Enter text: ")
+dob_list = re.findall(para, n)
+print("Extracted DOB(s):", dob_list)"""
+
+date_pattern = r"\b(?:\d{2}[/\.-]\d{2}[/\.-]\d{4})\b"
+s = input("Enter text: ")
+dates = re.findall(date_pattern, s)
+print("Extracted dates:", dates)
