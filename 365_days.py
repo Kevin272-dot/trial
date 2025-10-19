@@ -96,7 +96,7 @@ print(binary_search(sorted(unique_numbers), 436))"""
 
 
 """def quick_sort(l):
-    if len(l) <= 2:
+    if len(l) <= 1:
         return l
     else:
         pivot = l[0]
